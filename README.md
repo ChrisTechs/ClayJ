@@ -150,7 +150,7 @@ private void renderUI(LayoutResults results) {
 ClayJ is licensed under the **zlib/libpng license**.
 
 ```text
-Copyright (c) 2024 Christian Steenkamp
+Copyright (c) 2026 Christian Steenkamp
 
 This software is provided 'as-is', without any express or implied warranty.
 In no event will the authors be held liable for any damages arising from the
