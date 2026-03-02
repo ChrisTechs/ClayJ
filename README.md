@@ -1,4 +1,6 @@
 # ClayJ
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.christechs/ClayJ)
+
 
 ClayJ is a high performance, zero dependency, UI layout library for Java. 
 
@@ -9,6 +11,32 @@ It is a pure Java port of [Clay](https://github.com/nicbarker/clay), designed to
 This project would not exist without the work of the following developers:
 * **[Nic Barker (nicbarker)](https://github.com/nicbarker)** - The creator of the original **[Clay](https://github.com/nicbarker/clay)** C library. ClayJ directly implements the layout mathematics and architectural philosophy designed by Nic.
 * **[Patricio Whittingslow (soypat)](https://github.com/soypat)** - The author of **[Glay](https://github.com/soypat/glay)**, a Go port of Clay.
+
+## Installation
+
+ClayJ is available on **Maven Central**.
+
+### Maven
+
+```xml
+<dependency>
+    <groupId>io.github.christechs</groupId>
+    <artifactId>ClayJ</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+### Gradle (Groovy)
+
+```groovy
+implementation 'io.github.christechs:ClayJ:1.0.0'
+```
+
+### Gradle (Kotlin)
+
+```kotlin
+implementation("io.github.christechs:ClayJ:1.0.0")
+```
 
 ## Quick Start
 
