@@ -2,7 +2,7 @@
 ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.christechs/ClayJ)
 
 
-ClayJ is a high performance, zero dependency, UI layout library for Java. 
+ClayJ is a zero dependency, UI layout library for Java. 
 
 It is a pure Java port of [Clay](https://github.com/nicbarker/clay), designed to be framework and backend agnostic.
 
