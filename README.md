@@ -12,7 +12,7 @@ from the original Clay C project.**
 ## Acknowledgments & Credits
 
 This project would not exist without the work of the following developers:
-* **[Nic Barker (nicbarker)](https://github.com/nicbarker)** - The creator of the original **[Clay](https://github.com/nicbarker/clay)** C library. ClayJ directly implements the layout mathematics and architectural philosophy designed by Nic.
+* **[Nic Barker (nicbarker)](https://github.com/nicbarker)** - The creator of the original **[Clay](https://github.com/nicbarker/clay)** and the contributors of **[Clay](https://github.com/nicbarker/clay)**. ClayJ directly implements the layout logic of **[Clay](https://github.com/nicbarker/clay)**.
 * **[Patricio Whittingslow (soypat)](https://github.com/soypat)** - The author of **[Glay](https://github.com/soypat/glay)**, a Go port of Clay.
 
 ## Installation
