@@ -1,28 +1,25 @@
+/*
+ * This is free and unencumbered software released into the public domain.
+ *
+ * See the LICENSE.md file for more information, or visit <https://unlicense.org/>
+ */
 package io.github.christechs.clayj.math;
 
-public class BorderWidth {
-    public int left;
-    public int right;
-    public int top;
-    public int bottom;
-    public int betweenChildren;
+public record BorderWidth(int left, int right, int top, int bottom, int betweenChildren) {
 
-    public BorderWidth() {
+    public BorderWidth set(BorderWidth other) {
+        return new BorderWidth(other.left(), other.right(), other.top(), other.bottom(), other.betweenChildren());
     }
 
-    public BorderWidth(int left, int right, int top, int bottom, int betweenChildren) {
-        set(left, right, top, bottom, betweenChildren);
+    public BorderWidth set(int left, int right, int top, int bottom, int betweenChildren) {
+        return new BorderWidth(left, right, top, bottom, betweenChildren);
     }
 
-    public void set(BorderWidth other) {
-        set(other.left, other.right, other.top, other.bottom, other.betweenChildren);
+    public BorderWidth all(int width) {
+        return new BorderWidth(width, width, width, width, this.betweenChildren);
     }
 
-    public void set(int left, int right, int top, int bottom, int betweenChildren) {
-        this.left = left;
-        this.right = right;
-        this.top = top;
-        this.bottom = bottom;
-        this.betweenChildren = betweenChildren;
+    public BorderWidth between(int between) {
+        return new BorderWidth(this.left, this.right, this.top, this.bottom, between);
     }
 }

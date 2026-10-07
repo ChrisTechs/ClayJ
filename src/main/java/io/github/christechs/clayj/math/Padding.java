@@ -1,31 +1,34 @@
+/*
+ * This is free and unencumbered software released into the public domain.
+ *
+ * See the LICENSE.md file for more information, or visit <https://unlicense.org/>
+ */
 package io.github.christechs.clayj.math;
 
-public class Padding {
-    public int left;
-    public int right;
-    public int top;
-    public int bottom;
-
-    public Padding() {
-    }
-
-    public Padding(int left, int right, int top, int bottom) {
-        set(left, right, top, bottom);
-    }
+public record Padding(int left, int right, int top, int bottom) {
 
     public Padding(int padding) {
-        set(padding, padding, padding, padding);
+        this(padding, padding, padding, padding);
     }
 
-    public void set(Padding other) {
-        set(other.left, other.right, other.top, other.bottom);
+    public Padding set(Padding other) {
+        return new Padding(other.left(), other.right(), other.top(), other.bottom());
     }
 
-    public void set(int left, int right, int top, int bottom) {
-        this.left = left;
-        this.right = right;
-        this.top = top;
-        this.bottom = bottom;
+    public Padding set(int left, int right, int top, int bottom) {
+        return new Padding(left, right, top, bottom);
+    }
+
+    public Padding all(int padding) {
+        return new Padding(padding, padding, padding, padding);
+    }
+
+    public Padding x(int horizontalPadding) {
+        return new Padding(horizontalPadding, horizontalPadding, this.top, this.bottom);
+    }
+
+    public Padding y(int verticalPadding) {
+        return new Padding(this.left, this.right, verticalPadding, verticalPadding);
     }
 
     public int vertical() {

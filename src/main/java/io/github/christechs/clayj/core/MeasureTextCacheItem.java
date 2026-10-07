@@ -1,9 +1,19 @@
+/*
+ * Original Clay Library Copyright (c) 2024 Nic Barker
+ * Licensed under the zlib/libpng license.
+ *
+ * See the LICENSE.md file in the root of this repository for the
+ * full zlib/libpng license text.
+ *
+ * Note: This source file has been altered from the original Clay
+ * distribution. The modifications are released into the public domain.
+ */
 package io.github.christechs.clayj.core;
 
 import io.github.christechs.clayj.math.Dimensions;
 
 public class MeasureTextCacheItem {
-    public final Dimensions unwrappedDimensions = new Dimensions();
+    public Dimensions unwrappedDimensions = new Dimensions(0f, 0f);
     public int measureWordsStartIndex = 0;
     public boolean containsNewlines = false;
 
@@ -12,7 +22,7 @@ public class MeasureTextCacheItem {
     public int generation = 0;
 
     public void set(MeasureTextCacheItem other) {
-        this.unwrappedDimensions.set(other.unwrappedDimensions);
+        this.unwrappedDimensions = other.unwrappedDimensions;
         this.measureWordsStartIndex = other.measureWordsStartIndex;
         this.containsNewlines = other.containsNewlines;
         this.id = other.id;
@@ -21,8 +31,7 @@ public class MeasureTextCacheItem {
     }
 
     public void reset() {
-        unwrappedDimensions.width = 0;
-        unwrappedDimensions.height = 0;
+        unwrappedDimensions = new Dimensions(0f, 0f);
         measureWordsStartIndex = 0;
         containsNewlines = false;
         id = 0;

@@ -1,3 +1,13 @@
+/*
+ * Original Clay Library Copyright (c) 2024 Nic Barker
+ * Licensed under the zlib/libpng license.
+ *
+ * See the LICENSE.md file in the root of this repository for the
+ * full zlib/libpng license text.
+ *
+ * Note: This source file has been altered from the original Clay
+ * distribution. The modifications are released into the public domain.
+ */
 package io.github.christechs.clayj.core;
 
 import io.github.christechs.clayj.math.BorderWidth;
@@ -6,99 +16,62 @@ import io.github.christechs.clayj.math.CornerRadius;
 import io.github.christechs.clayj.math.Dimensions;
 
 public class RenderData {
-    public final Dimensions sourceDimensions = new Dimensions();
-    public Color backgroundColor;
-    public CornerRadius cornerRadius;
+    public Dimensions sourceDimensions = new Dimensions(0f, 0f);
+    public Color backgroundColor = new Color(0f, 0f, 0f, 0f);
+    public CornerRadius cornerRadius = new CornerRadius(0f, 0f, 0f, 0f);
+    public Color textColor = new Color(0f, 0f, 0f, 0f);
+    public Color overlayColor = new Color(0f, 0f, 0f, 0f);
+    public Color borderColor = new Color(0f, 0f, 0f, 0f);
+    public BorderWidth borderWidth = new BorderWidth(0, 0, 0, 0, 0);
     public CharSequence text;
     public int textStart;
     public int textLength;
-    public Color textColor;
     public int fontId;
     public int fontSize;
     public int letterSpacing;
     public int lineHeight;
     public Object imageData;
-
     public boolean scrollHorizontal;
     public boolean scrollVertical;
-
-    public Color borderColor;
-    public BorderWidth borderWidth;
-
     public Object customData;
 
     public void set(RenderData other) {
-        if (other.backgroundColor != null) {
-            if (this.backgroundColor == null) this.backgroundColor = new Color();
-            this.backgroundColor.set(other.backgroundColor);
-        } else {
-            this.backgroundColor = null;
-        }
-
-        if (other.cornerRadius != null) {
-            if (this.cornerRadius == null) this.cornerRadius = new CornerRadius();
-            this.cornerRadius.set(other.cornerRadius);
-        } else {
-            this.cornerRadius = null;
-        }
-
+        this.backgroundColor = other.backgroundColor;
+        this.cornerRadius = other.cornerRadius;
         this.text = other.text;
         this.textStart = other.textStart;
         this.textLength = other.textLength;
-
-        if (other.textColor != null) {
-            if (this.textColor == null) this.textColor = new Color();
-            this.textColor.set(other.textColor);
-        } else {
-            this.textColor = null;
-        }
-
+        this.textColor = other.textColor;
         this.fontId = other.fontId;
         this.fontSize = other.fontSize;
         this.letterSpacing = other.letterSpacing;
         this.lineHeight = other.lineHeight;
-
-        this.sourceDimensions.set(other.sourceDimensions);
+        this.sourceDimensions = other.sourceDimensions;
         this.imageData = other.imageData;
-
         this.scrollHorizontal = other.scrollHorizontal;
         this.scrollVertical = other.scrollVertical;
-
-        if (other.borderColor != null) {
-            if (this.borderColor == null) this.borderColor = new Color();
-            this.borderColor.set(other.borderColor);
-        } else {
-            this.borderColor = null;
-        }
-
-        if (other.borderWidth != null) {
-            if (this.borderWidth == null) this.borderWidth = new BorderWidth();
-            this.borderWidth.set(other.borderWidth);
-        } else {
-            this.borderWidth = null;
-        }
-
+        this.borderColor = other.borderColor;
+        this.borderWidth = other.borderWidth;
         this.customData = other.customData;
     }
 
     public void reset() {
-        backgroundColor = null;
-        cornerRadius = null;
+        backgroundColor = new Color(0f, 0f, 0f, 0f);
+        cornerRadius = new CornerRadius(0f, 0f, 0f, 0f);
         text = null;
         textStart = 0;
         textLength = 0;
-        textColor = null;
+        textColor = new Color(0f, 0f, 0f, 0f);
         fontId = 0;
         fontSize = 0;
         letterSpacing = 0;
         lineHeight = 0;
-        sourceDimensions.width = 0;
-        sourceDimensions.height = 0;
+        sourceDimensions = new Dimensions(0f, 0f);
         imageData = null;
         scrollHorizontal = false;
         scrollVertical = false;
-        borderColor = null;
-        borderWidth = null;
+        borderColor = new Color(0f, 0f, 0f, 0f);
+        borderWidth = new BorderWidth(0, 0, 0, 0, 0);
         customData = null;
     }
 }

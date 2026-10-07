@@ -1,3 +1,13 @@
+/*
+ * Original Clay Library Copyright (c) 2024 Nic Barker
+ * Licensed under the zlib/libpng license.
+ *
+ * See the LICENSE.md file in the root of this repository for the
+ * full zlib/libpng license text.
+ *
+ * Note: This source file has been altered from the original Clay
+ * distribution. The modifications are released into the public domain.
+ */
 package io.github.christechs.clayj.core;
 
 import io.github.christechs.clayj.math.BoundingBox;
@@ -5,13 +15,13 @@ import io.github.christechs.clayj.math.Dimensions;
 import io.github.christechs.clayj.math.Vector2;
 
 public class ScrollContainerDataInternal {
-    public final BoundingBox boundingBox = new BoundingBox();
-    public final Dimensions contentSize = new Dimensions();
-    public final Vector2 scrollOrigin = new Vector2();
-    public final Vector2 pointerOrigin = new Vector2();
-    public final Vector2 scrollMomentum = new Vector2();
-    public final Vector2 scrollPosition = new Vector2();
-    public final Vector2 previousDelta = new Vector2();
+    public BoundingBox boundingBox = new BoundingBox(0f, 0f, 0f, 0f);
+    public Dimensions contentSize = new Dimensions(0f, 0f);
+    public Vector2 scrollOrigin = new Vector2(0f, 0f);
+    public Vector2 pointerOrigin = new Vector2(0f, 0f);
+    public Vector2 scrollMomentum = new Vector2(0f, 0f);
+    public Vector2 scrollPosition = new Vector2(0f, 0f);
+    public Vector2 previousDelta = new Vector2(0f, 0f);
     public LayoutElement layoutElement;
     public float momentumTime = 0f;
     public int elementId = 0;
@@ -20,22 +30,13 @@ public class ScrollContainerDataInternal {
 
     public void reset() {
         layoutElement = null;
-        boundingBox.x = 0;
-        boundingBox.y = 0;
-        boundingBox.width = 0;
-        boundingBox.height = 0;
-        contentSize.width = 0;
-        contentSize.height = 0;
-        scrollOrigin.x = 0;
-        scrollOrigin.y = 0;
-        pointerOrigin.x = 0;
-        pointerOrigin.y = 0;
-        scrollMomentum.x = 0;
-        scrollMomentum.y = 0;
-        scrollPosition.x = 0;
-        scrollPosition.y = 0;
-        previousDelta.x = 0;
-        previousDelta.y = 0;
+        boundingBox = new BoundingBox(0f, 0f, 0f, 0f);
+        contentSize = new Dimensions(0f, 0f);
+        scrollOrigin = new Vector2(0f, 0f);
+        pointerOrigin = new Vector2(0f, 0f);
+        scrollMomentum = new Vector2(0f, 0f);
+        scrollPosition = new Vector2(0f, 0f);
+        previousDelta = new Vector2(0f, 0f);
         momentumTime = 0f;
         elementId = 0;
         openThisFrame = false;

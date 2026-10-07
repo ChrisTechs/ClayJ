@@ -1,3 +1,9 @@
+/*
+ * This is free and unencumbered software released into the public domain.
+ *
+ * See the LICENSE.md file for more information, or visit <https://unlicense.org/>
+ */
+
 package io.github.christechs.clayj.util;
 
 public class ArrayUtil {

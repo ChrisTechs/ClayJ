@@ -1,24 +1,18 @@
+/*
+ * This is free and unencumbered software released into the public domain.
+ *
+ * See the LICENSE.md file for more information, or visit <https://unlicense.org/>
+ */
 package io.github.christechs.clayj.math;
 
-public class Sizing {
-    public final SizingAxis width = new SizingAxis();
-    public final SizingAxis height = new SizingAxis();
+public record Sizing(SizingAxis width, SizingAxis height) {
 
-    public Sizing() {
+    public Sizing set(Sizing other) {
+        return new Sizing(other.width(), other.height());
     }
 
-    public Sizing(SizingAxis width, SizingAxis height) {
-        set(width, height);
-    }
-
-    public void set(Sizing other) {
-        this.width.set(other.width);
-        this.height.set(other.height);
-    }
-
-    public void set(SizingAxis width, SizingAxis height) {
-        this.width.set(width);
-        this.height.set(height);
+    public Sizing set(SizingAxis width, SizingAxis height) {
+        return new Sizing(width, height);
     }
 
     public SizingAxis sizingAxis(boolean xAxis) {
@@ -26,16 +20,14 @@ public class Sizing {
     }
 
     public Dimensions clamp(Dimensions d) {
-        d.height = clampHeight(d.height);
-        d.width = clampWidth(d.width);
-        return d;
+        return new Dimensions(clampWidth(d.width()), clampHeight(d.height()));
     }
 
     public float clampWidth(float w) {
-        return Math.max(width.minMax.min, Math.min(width.minMax.max, w));
+        return Math.clamp(width.minMax().max(), width.minMax().min(), w);
     }
 
     public float clampHeight(float h) {
-        return Math.max(height.minMax.min, Math.min(height.minMax.max, h));
+        return Math.clamp(height.minMax().max(), height.minMax().min(), h);
     }
 }

@@ -6,21 +6,41 @@ plugins {
 }
 
 group = "io.github.christechs"
-version = "1.0.0"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.11.4"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.assertj:assertj-core:3.27.7")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStandardStreams = true
+    }
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
     withSourcesJar()
     withJavadocJar()
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStandardStreams = true
+    }
 }
 
 tasks.withType<Javadoc> {
@@ -35,13 +55,21 @@ publishing {
 
             pom {
                 name.set("ClayJ")
-                description.set("A high performance, zero dependency, UI layout library for Java.")
+                description.set("ClayJ is a zero external dependency, UI layout library for Java.")
                 url.set("https://github.com/christechs/clayj")
 
                 licenses {
                     license {
+                        name.set("The Unlicense")
+                        url.set("https://unlicense.org/")
+                    }
+                    license {
                         name.set("zlib/libpng License")
                         url.set("https://opensource.org/licenses/Zlib")
+                    }
+                    license {
+                        name.set("BSD 3-Clause License")
+                        url.set("https://opensource.org/licenses/BSD-3-Clause")
                     }
                 }
                 developers {

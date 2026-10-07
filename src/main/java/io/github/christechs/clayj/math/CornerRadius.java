@@ -1,30 +1,25 @@
+/*
+ * This is free and unencumbered software released into the public domain.
+ *
+ * See the LICENSE.md file for more information, or visit <https://unlicense.org/>
+ */
 package io.github.christechs.clayj.math;
 
-public class CornerRadius {
-    public float topLeft;
-    public float topRight;
-    public float bottomLeft;
-    public float bottomRight;
-
-    public CornerRadius() {
-    }
+public record CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight) {
 
     public CornerRadius(float radius) {
-        set(radius, radius, radius, radius);
+        this(radius, radius, radius, radius);
     }
 
-    public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight) {
-        set(topLeft, topRight, bottomLeft, bottomRight);
+    public CornerRadius set(CornerRadius other) {
+        return new CornerRadius(other.topLeft(), other.topRight(), other.bottomLeft(), other.bottomRight());
     }
 
-    public void set(CornerRadius other) {
-        set(other.topLeft, other.topRight, other.bottomLeft, other.bottomRight);
+    public CornerRadius set(float topLeft, float topRight, float bottomLeft, float bottomRight) {
+        return new CornerRadius(topLeft, topRight, bottomLeft, bottomRight);
     }
 
-    public void set(float topLeft, float topRight, float bottomLeft, float bottomRight) {
-        this.topLeft = topLeft;
-        this.topRight = topRight;
-        this.bottomLeft = bottomLeft;
-        this.bottomRight = bottomRight;
+    public CornerRadius all(float radius) {
+        return new CornerRadius(radius, radius, radius, radius);
     }
 }
