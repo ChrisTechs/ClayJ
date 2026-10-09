@@ -479,7 +479,7 @@ public final class ClayJ {
             }
             end++;
         }
-        if (end - start > 0) {
+        if (end - start > 0 && context.measuredWordsLength < context.maxMeasureTextCacheWordCount) {
             Dimensions dim = context.measureTextFunction.measure(text, start, end - start, config);
             addMeasuredWord(start, end - start, dim.width(), previousWord);
             lineWidth += dim.width();

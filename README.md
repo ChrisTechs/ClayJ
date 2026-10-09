@@ -25,20 +25,20 @@ ClayJ is available on **Maven Central**.
 <dependency>
     <groupId>io.github.christechs</groupId>
     <artifactId>ClayJ</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
 ### Gradle (Groovy)
 
 ```groovy
-implementation 'io.github.christechs:ClayJ:1.1.0'
+implementation 'io.github.christechs:ClayJ:1.1.1'
 ```
 
 ### Gradle (Kotlin)
 
 ```kotlin
-implementation("io.github.christechs:ClayJ:1.1.0")
+implementation("io.github.christechs:ClayJ:1.1.1")
 ```
 
 ## Quick Start
